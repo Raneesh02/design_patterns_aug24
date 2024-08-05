@@ -20,7 +20,7 @@ https://www.oracle.com/in/java/technologies/downloads/#jdk22-windows
 
 Directly import the project as a maven project
 
-##Setup Project SDK
+## Setup Project SDK
 Intellij requires you to set/ choose project SDK , follow this link for the same
 
 https://intellij-support.jetbrains.com/hc/en-us/community/posts/360010215699-Set-up-a-project-SDK
