@@ -24,6 +24,7 @@ Directly import the project as a maven project
 
 Download Maven https://maven.apache.org/download.cgi
 
+Open a command line/ Terminal in project folder
 ```sh
 mvn compile
 ```
@@ -37,5 +38,3 @@ mvn clean test
 ```
 
 all the tests with @Test will run
-
-# design_patters_aug24
