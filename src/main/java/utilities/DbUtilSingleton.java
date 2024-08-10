@@ -8,21 +8,33 @@ public class DbUtilSingleton {
     }
 
     // Early Initialization
-    final static DbUtilSingleton dbUtilSingleton = new DbUtilSingleton();
+//    final static DbUtilSingleton dbUtilSingleton = new DbUtilSingleton();
+//
+//    static public DbUtilSingleton getInstance(){
+//        return  dbUtilSingleton;
+//    }
 
-    static public DbUtilSingleton getInstance(){
-        return  dbUtilSingleton;
+    // Early Initialization
+
+    //Lazy Initialization
+    static DbUtilSingleton dbUtilSingleton;
+
+    static public DbUtilSingleton getInstance() {
+        if(dbUtilSingleton == null) {  // Threads are accessing the same line , Thread T1 , T2, T3
+            dbUtilSingleton = new DbUtilSingleton();  //T3 Initalized the variable
+        }
+        return dbUtilSingleton;
     }
 
 
-    // Early Initialization
+    //Lazy Initialization
 
 
     public void runQuery(String query){
         System.out.println("Query : "+ query + " ran");
     }
 
-    public void printConfit(){
+    public static void printConfig(){
         System.out.println("DbUtil Configuration");
     }
 
