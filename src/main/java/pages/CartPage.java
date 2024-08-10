@@ -19,8 +19,8 @@ public class CartPage extends BasePage {
         return getText(productName);
     }
 
-    public String getProductQty(){
-        return getValue(qty);
+    public int getProductQty(){
+        return Integer.parseInt(getValue(qty));
     }
 
     public boolean isProceedPresent(){
