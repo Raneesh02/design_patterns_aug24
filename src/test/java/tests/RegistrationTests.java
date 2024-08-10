@@ -22,7 +22,7 @@ public class RegistrationTests extends BaseTest {
     @Test
     public void testDobErrorFluent(){
         RegistrationPageFluent registrationPageFluent = new RegistrationPageFluent(DriverManager.getDriver());
-        registrationPageFluent.enterFirstName("Itachi").enterLastName("Uchiha").submitForm();
+        registrationPageFluent.navigateByUrl().enterFirstName("Itachi").enterLastName("Uchiha").submitForm();
         Assert.assertTrue(registrationPageFluent.isDobErrorDisplayed(),"Dob error is not displayed");
     }
 
