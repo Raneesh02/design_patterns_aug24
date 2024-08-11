@@ -8,6 +8,7 @@ import org.testng.Assert;
 import pages.FilterSideBar;
 import pages.ProductDetailPage;
 import pages.interfaces.HomePage;
+import utilities.PropertyHandler;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,6 +34,7 @@ public class WebHomepage extends BasePage  implements HomePage {
     }
 
     public void openCategories(){
+
         waitAndClick(categoriesMenuOptCss);
     }
 
