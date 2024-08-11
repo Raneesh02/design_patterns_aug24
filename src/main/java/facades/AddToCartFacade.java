@@ -7,6 +7,7 @@ import pages.CartPage;
 import pages.FilterSideBar;
 import pages.web.WebHomepage;
 import pages.ProductDetailPage;
+import testdata.Product;
 
 public class AddToCartFacade extends BasePage {
     public AddToCartFacade(WebDriver driver) {
@@ -23,5 +24,14 @@ public class AddToCartFacade extends BasePage {
         return productDetailPage.goToCart();
     }
 
+    public CartPage addToCart(Product product){
+        WebHomepage homepage = new WebHomepage(DriverManager.getDriver());
+        FilterSideBar filterBar = homepage.getFilterBar();
+        filterBar.selectFilterCategory(product.getCategory());
+        ProductDetailPage productDetailPage = homepage.selectProduct(product.getName());
+        productDetailPage.increaseProductQty(product.getQty());
+        productDetailPage.addToCart();
+        return productDetailPage.goToCart();
+    }
 
 }

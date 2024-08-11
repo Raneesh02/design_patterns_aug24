@@ -13,6 +13,7 @@ public class BaseTest {
         DriverManager.initDriver();
         url = PropertyHandler.getProperty("url");
         DriverManager.getDriver().get(url);
+        //testa data init
     }
 
     @AfterMethod

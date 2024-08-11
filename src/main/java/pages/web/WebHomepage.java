@@ -80,6 +80,14 @@ public class WebHomepage extends BasePage  implements HomePage {
         return new ProductDetailPage(driver);
     }
 
+    public ProductDetailPage selectProduct(String productName){
+        waitForVisible(productNameCss);
+        List<WebElement> elements = driver.findElements(productNameCss);
+        WebElement element1 = elements.stream().filter(element -> element.getText().contains(productName)).findFirst().get();
+        element1.click();
+        return new ProductDetailPage(driver);
+    }
+
     public boolean noResultsPresent(){
         return isDisplayed(noResultsCss);
     }
