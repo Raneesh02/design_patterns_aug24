@@ -23,8 +23,8 @@ public class DbUtilSingleton {
 //        if(dbUtilSingleton == null) {  // Threads are accessing the same line , Thread T1 , T2, T3
 //            dbUtilSingleton = new DbUtilSingleton();  //T3 Initalized the variable
 //        }
-//        ret
-
+//        return dbUtilSingleton;
+//
 //    }
 
 
@@ -45,22 +45,22 @@ public class DbUtilSingleton {
 // //    Thread Safe
 
     //Double Locking Thread Safe
-    private static DbUtilSingleton dbUtil;
+    private static DbUtilSingleton  dbUtil;
 
     public static DbUtilSingleton getInstance() {
         if(dbUtil == null){
-            System.out.println("Thread inside if waiting to create resource");
+            System.out.println(Thread.currentThread().getName()+" Thread inside if waiting to create resource");
             synchronized (DbUtilSingleton.class) {
                 if(dbUtil == null){
                     dbUtil = new DbUtilSingleton();
-                    System.out.println("DBUtilSingleton Instance Created" + dbUtil.hashCode());
+                    System.out.println(Thread.currentThread().getName()+" DBUtilSingleton Instance Created" + dbUtil.hashCode());
                 }
                 else {
-                    System.out.println("Double locking worked");
+                    System.out.println(Thread.currentThread().getName()+ " Double locking worked");
                 }
             }
         }
-        System.out.println("DBUtilSingleton Instance Returned" + dbUtil.hashCode());
+        System.out.println(Thread.currentThread().getName()+ " DBUtilSingleton Instance Returned" + dbUtil.hashCode());
         return dbUtil;
     }
     //Double Locking Thread Safe
