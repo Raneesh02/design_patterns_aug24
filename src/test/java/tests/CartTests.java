@@ -9,12 +9,14 @@ import pages.FilterSideBar;
 import pages.web.WebHomepage;
 import pages.ProductDetailPage;
 import facades.AddToCartFacade;
+import testdata.Product;
 
 public class CartTests extends BaseTest {
 
 
     @Test
     public void validateCartPage(){
+        //excelUtility.getData("Ts101")
         WebHomepage homepage = new WebHomepage(DriverManager.getDriver());
         FilterSideBar filterBar = homepage.getFilterBar();
         filterBar.selectFilterCategory("Hammer");
@@ -53,6 +55,31 @@ public class CartTests extends BaseTest {
         CartPage cartPage = addToCartFacade.addToCart("Pliers",3);
         Assert.assertTrue(cartPage.isProceedPresent());
         Assert.assertEquals(cartPage.getProductQty(), 3);
+    }
+
+    @Test
+    public void validateCartPageFacadePliersUsingBuilder(){
+        Product product1 = new Product.ProductBuilder()
+                .setCategory("Hammer")
+                .setName("Thor Hammer")
+                .setQty(3).build();
+
+        AddToCartFacade addToCartFacade = new AddToCartFacade(DriverManager.getDriver());
+        addToCartFacade.addToCart(product1);
+
+    }
+
+    @Test
+    public void validateCartPageFacadePliersUsingBuilder2(){
+        Product product1 = new Product.ProductBuilder()
+                .setCategory("Pliers")
+                .setName("Thor Hammer")
+                .setQty(3).build();
+
+        AddToCartFacade addToCartFacade = new AddToCartFacade(DriverManager.getDriver());
+        addToCartFacade.addToCart(product1);
+
+
     }
 
 }

@@ -1,0 +1,12 @@
+{
+  "testData101": {
+    "car": {
+      "brand": "maruti"
+    },
+    "buyer": {
+      "name": "xyz"
+    }
+
+  }
+
+}
