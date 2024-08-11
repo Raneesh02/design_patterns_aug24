@@ -5,7 +5,7 @@ import Base.DriverManager;
 import org.openqa.selenium.WebDriver;
 import pages.CartPage;
 import pages.FilterSideBar;
-import pages.Homepage;
+import pages.web.WebHomepage;
 import pages.ProductDetailPage;
 
 public class AddToCartFacade extends BasePage {
@@ -14,7 +14,7 @@ public class AddToCartFacade extends BasePage {
     }
 
     public CartPage addToCart(String category, int qty){
-        Homepage homepage = new Homepage(DriverManager.getDriver());
+        WebHomepage homepage = new WebHomepage(DriverManager.getDriver());
         FilterSideBar filterBar = homepage.getFilterBar();
         filterBar.selectFilterCategory(category);
         ProductDetailPage productDetailPage = homepage.selectProduct(1);
