@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class DriverManager {
 
-    private static ThreadLocal<WebDriver> threadLocalDriver= new ThreadLocal<>();;
+    private static ThreadLocal<WebDriver> threadLocalDriver= new ThreadLocal<>();
 
     public static WebDriver initDriver(){
         ChromeOptions chromeOptions = new ChromeOptions();

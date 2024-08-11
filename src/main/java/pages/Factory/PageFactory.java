@@ -1,27 +1,27 @@
 package pages.Factory;
 
 import org.openqa.selenium.WebDriver;
+import pages.RegistrationPage;
 import pages.interfaces.HomePage;
 import pages.mobileweb.mWebHomePage;
 import pages.web.WebHomepage;
 import utilities.PropertyHandler;
 
 
-public class PageFactory {
+public abstract class PageFactory {
 
-     public HomePage getHomePage(WebDriver driver){
-         HomePage homePage;
+     public abstract HomePage getHomePage(WebDriver driver);
+
+     public static PageFactory getPageFactory(){
          switch (PropertyHandler.platform){
              case "web":
-                 homePage = new WebHomepage(driver);
-                 break;
+                 return new WebPageFactory();
              case "mweb":
-                 homePage = new mWebHomePage(driver);
-                 break;
+                 return new MWebPageFactory();
              default: throw new IllegalArgumentException("Platform "+ PropertyHandler.platform+" is invalid");
          }
-
-         return homePage;
      }
+
+
 
 }
