@@ -1,15 +1,18 @@
-package pages;
+package pages.web;
 
 import Base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import pages.FilterSideBar;
+import pages.ProductDetailPage;
+import pages.interfaces.HomePage;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Homepage extends BasePage {
+public class WebHomepage extends BasePage  implements HomePage {
 
     By homeMenuOptCss=By.cssSelector("[data-test='nav-home']");
     By categoriesMenuOptCss=By.cssSelector("[data-test='nav-categories']");
@@ -25,7 +28,7 @@ public class Homepage extends BasePage {
     By noResultsCss=By.cssSelector("[data-test='no-results']");
 
 
-    public Homepage(WebDriver driver) {
+    public WebHomepage(WebDriver driver) {
         super(driver);
     }
 

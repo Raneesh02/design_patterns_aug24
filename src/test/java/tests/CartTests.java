@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CartPage;
 import pages.FilterSideBar;
-import pages.Homepage;
+import pages.web.WebHomepage;
 import pages.ProductDetailPage;
 import facades.AddToCartFacade;
 
@@ -15,7 +15,7 @@ public class CartTests extends BaseTest {
 
     @Test
     public void validateCartPage(){
-        Homepage homepage = new Homepage(DriverManager.getDriver());
+        WebHomepage homepage = new WebHomepage(DriverManager.getDriver());
         FilterSideBar filterBar = homepage.getFilterBar();
         filterBar.selectFilterCategory("Hammer");
         ProductDetailPage productDetailPage = homepage.selectProduct(1);
@@ -28,7 +28,7 @@ public class CartTests extends BaseTest {
 
     @Test
     public void validateCartPagePliers(){
-        Homepage homepage = new Homepage(DriverManager.getDriver());
+        WebHomepage homepage = new WebHomepage(DriverManager.getDriver());
         FilterSideBar filterBar = homepage.getFilterBar();
         filterBar.selectFilterCategory("Pliers");
         ProductDetailPage productDetailPage = homepage.selectProduct(1);
