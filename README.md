@@ -1,9 +1,9 @@
 ## Introduction
 This project is using Selenium4 Maven TestNG Java. it is a prerequisite for this workshop https://www.thetesttribe.com/design-patterns-for-testers/ 
 
-## New to Git ?
+## New to Git?
 
-Install Git : https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+Install Git: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
 ```sh
 git clone https://github.com/Raneesh02/design_patterns_aug24.git
